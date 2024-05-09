@@ -19,6 +19,6 @@ public class Usuario {
     private Long id;
 
     private String login;
-    private int password;
-    private String role;
+    private int senha;
+    private Role role;
 }
