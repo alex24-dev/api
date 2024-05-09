@@ -1,7 +1,7 @@
 package br.com.empresa.api.service;
 
-import br.com.empresa.api.domain.Produto;
-import br.com.empresa.api.domain.ProdutoDto;
+import br.com.empresa.api.domain.produto.Produto;
+import br.com.empresa.api.domain.produto.ProdutoDto;
 import br.com.empresa.api.repository.ProdutoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

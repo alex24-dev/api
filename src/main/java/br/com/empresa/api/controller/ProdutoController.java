@@ -1,6 +1,6 @@
 package br.com.empresa.api.controller;
 
-import br.com.empresa.api.domain.ProdutoDto;
+import br.com.empresa.api.domain.produto.ProdutoDto;
 import br.com.empresa.api.service.ProdutoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

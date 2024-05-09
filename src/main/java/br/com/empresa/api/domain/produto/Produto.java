@@ -1,4 +1,4 @@
-package br.com.empresa.api.domain;
+package br.com.empresa.api.domain.produto;
 
 
 import jakarta.persistence.*;
