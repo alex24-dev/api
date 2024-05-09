@@ -23,7 +23,5 @@ public class Produto {
 
     private String nome;
     private String descricao;
-    @NotNull
-    @Positive
     private Integer valor;
 }
