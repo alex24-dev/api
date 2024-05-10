@@ -1,6 +1,5 @@
 package br.com.empresa.api.service;
 
-import br.com.empresa.api.domain.usuario.Usuario;
 import br.com.empresa.api.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,10 +18,4 @@ public class AutenticacaoService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return repository.findByLogin(username);
     }
-
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        Usuario user = repository.findByLogin(username).orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
-//        return new UserDetailsImpl(user);
-//    }
 }
