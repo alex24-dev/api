@@ -32,15 +32,10 @@ public class AutenticacaoController {
     @PostMapping("/login")
     public ResponseEntity<String> efetuarLogin(@RequestBody @Valid UsuarioDto dto){
 
-        try {
             var authenticationToken = new UsernamePasswordAuthenticationToken(dto.login(), dto.senha());
             var authentication = manager.authenticate(authenticationToken);
             return ResponseEntity.ok(tokenService.gerarToken((Usuario) authentication.getPrincipal()));
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return ResponseEntity.status(HttpStatus.OK).build();
-}
+    }
 
 }

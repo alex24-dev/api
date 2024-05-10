@@ -4,6 +4,7 @@ import br.com.empresa.api.domain.usuario.Usuario;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -12,9 +13,12 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
+    @Value("api.token.secret")
+    private String secret;
+
     public String gerarToken(Usuario usuario){
         try {
-            Algorithm algoritmo = Algorithm.HMAC256("7841");
+            Algorithm algoritmo = Algorithm.HMAC256(secret);
             return  JWT.create()
                     .withIssuer("Empresa Api")
                     .withSubject(usuario.getLogin())
