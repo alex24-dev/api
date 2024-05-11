@@ -1,5 +1,6 @@
 package br.com.empresa.api.infra;
 
+import br.com.empresa.api.infra.security.SecurityFilter;
 import br.com.empresa.api.service.AutenticacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +26,9 @@ public class ConfiguracaoSeguranca {
     @Autowired
     private AutenticacaoService service;
 
+    @Autowired
+    private SecurityFilter securityFilter;
+
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
@@ -34,11 +38,11 @@ public class ConfiguracaoSeguranca {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .anyRequest().authenticated()
+
                 )
+                .addFilterBefore(securityFilter,UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
-
 
 
     @Bean

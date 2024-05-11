@@ -4,6 +4,7 @@ import br.com.empresa.api.domain.usuario.Usuario;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.time.Instant;
@@ -13,7 +14,7 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
-    @Value("api.token.secret")
+    @Value("$(api.token.secret)")
     private String secret;
 
     public String gerarToken(Usuario usuario){
@@ -25,13 +26,28 @@ public class TokenService {
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
         } catch (JWTCreationException exception){
-         throw new RuntimeException("ero ao gerar token jwt",exception);
+         throw new RuntimeException("Erro ao gerar token jwt",exception);
         }
     }
 
 
-
     private Instant dataExpiracao(){
         return LocalDateTime.now().plusHours(1).toInstant(ZoneOffset.of("-03:00"));
+    }
+
+    public String getSubject(String tokenJWT){
+        try {
+            Algorithm algoritmo = Algorithm.HMAC256(secret);
+            return  JWT.require(algoritmo)
+                    // specify any specific claim validations
+                    .withIssuer("Empresa Api")
+                    // reusable verifier instance
+                    .build().
+                    verify(tokenJWT).
+                    getSubject();
+
+        } catch (JWTVerificationException exception){
+           throw new RuntimeException("Token JWT expirado ou inválido");
+        }
     }
 }
