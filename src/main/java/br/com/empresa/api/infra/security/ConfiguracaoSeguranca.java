@@ -1,4 +1,4 @@
-package br.com.empresa.api.infra;
+package br.com.empresa.api.infra.security;
 
 import br.com.empresa.api.infra.security.SecurityFilter;
 import br.com.empresa.api.service.AutenticacaoService;

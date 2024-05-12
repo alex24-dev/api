@@ -1,4 +1,4 @@
-package br.com.empresa.api.infra;
+package br.com.empresa.api.configuracao;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

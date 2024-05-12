@@ -28,6 +28,12 @@ public class Usuario implements UserDetails {
     private String senha;
     private String role;
 
+    public Usuario(String login, String encryptedPassword, String role) {
+        this.login = login;
+        this.senha = encryptedPassword;
+        this.role = role;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("Role_User"));

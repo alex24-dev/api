@@ -1,9 +1,15 @@
 package br.com.empresa.api.domain.usuario;
 
-public enum Role {
-    ADMIN("Admin");
+public class Role {
+
+    private String role;
 
 
-    Role(String admin) {
+    Role(String role) {
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
     }
 }

@@ -1,7 +1,8 @@
 package br.com.empresa.api.controller;
 
+import br.com.empresa.api.domain.usuario.RegistrarDto;
 import br.com.empresa.api.domain.usuario.Usuario;
-import br.com.empresa.api.domain.usuario.UsuarioDto;
+import br.com.empresa.api.domain.usuario.LoginDto;
 import br.com.empresa.api.infra.security.TokenService;
 import br.com.empresa.api.service.AutenticacaoService;
 import jakarta.validation.Valid;
@@ -30,11 +31,18 @@ public class AutenticacaoController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> efetuarLogin(@RequestBody @Valid UsuarioDto dto){
+    public ResponseEntity<String> efetuarLogin(@RequestBody @Valid LoginDto dto){
 
             var authenticationToken = new UsernamePasswordAuthenticationToken(dto.login(), dto.senha());
             var authentication = manager.authenticate(authenticationToken);
             return ResponseEntity.ok(tokenService.gerarToken((Usuario) authentication.getPrincipal()));
+
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<String> createUser(@RequestBody RegistrarDto dto) {
+        service.register(dto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
 
