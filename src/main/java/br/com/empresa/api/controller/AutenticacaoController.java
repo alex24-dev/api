@@ -40,7 +40,7 @@ public class AutenticacaoController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> createUser(@RequestBody RegistrarDto dto) {
+    public ResponseEntity<String> createUser(@RequestBody @Valid RegistrarDto dto) {
         service.register(dto);
         return new ResponseEntity<>(HttpStatus.CREATED);
 

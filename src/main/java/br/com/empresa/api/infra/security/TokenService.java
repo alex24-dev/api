@@ -31,7 +31,7 @@ public class TokenService {
     }
 
 
-    private Instant dataExpiracao(){
+    public Instant dataExpiracao(){
         return LocalDateTime.now().plusHours(1).toInstant(ZoneOffset.of("-03:00"));
     }
 
