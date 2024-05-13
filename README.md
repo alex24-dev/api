@@ -15,7 +15,7 @@
 - <a href="https://github.com/alex24-dev/api"> GitHub</a>
 
 ## Tecnologias usadas
-- JAVA 17
+- ☕ JAVA 17
 - SPRING BOOT
 - Spring Security
 - Maven
