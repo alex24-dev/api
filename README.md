@@ -10,9 +10,11 @@
 - <a href="#tecnologias">Tecnologias usadas</a>
 - <a href="#funcionalidades">Funcionalidades do Projeto</a>
 
-## Repositorio gitHub
+##  💻 Repositorio gitHub
 
 - <a href="https://github.com/alex24-dev/api"> GitHub</a>
+- Para baixar esse projeto no computador é necessário ter o git instalado
+- usar o comado: git clone + o endereço do repositório
 
 ## Tecnologias usadas
 - ☕ JAVA 17
