@@ -12,7 +12,7 @@
 
 ## Repositorio gitHub
 
-- <a href="#repositorio" src="https://github.com/alex24-dev/api"> GitHub</a>
+- <a href="https://github.com/alex24-dev/api"> GitHub</a>
 
 ## Tecnologias usadas
 - JAVA 17
