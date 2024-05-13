@@ -4,9 +4,14 @@
 
 ## Índice do projeto 
 
+- <a href="#tecnologias">Tecnologias usadas</a>
 - <a href="#funcionalidades">Funcionalidades do Projeto</a>
 
-## Funcionalidades do Projeto
+## Tecnologias usadas
+- JAVA 17
+- SPRING BOOT
+
+## ✍ Funcionalidades do Projeto
 
 - Cadastrar produtos
 
