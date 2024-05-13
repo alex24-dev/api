@@ -3,6 +3,7 @@
 ## Api com java 
 
 ## Esse projeto cria um cenário de uma empresa que precisa criar login para seu funcionários e cadastrar produtos
+-Esse projeto usa Spring security, então as requisições só podem ser feitas após a geração de token
 
 ## Índice do projeto 
 
@@ -30,5 +31,6 @@
 ## ✍ Funcionalidades do Projeto
 
 - Cadastrar produtos
+- Cadastrar usuários
 
 
