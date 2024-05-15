@@ -50,6 +50,7 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity<ProdutoDto> remover(@PathVariable @Valid Long id){
 
         service.excluirPagamento(id);

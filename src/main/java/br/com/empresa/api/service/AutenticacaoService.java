@@ -3,6 +3,7 @@ package br.com.empresa.api.service;
 import br.com.empresa.api.domain.usuario.RegistrarDto;
 import br.com.empresa.api.domain.usuario.Usuario;
 import br.com.empresa.api.repository.UsuarioRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +23,7 @@ public class AutenticacaoService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return repository.findByLogin(username);
+
     }
 
 

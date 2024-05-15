@@ -4,6 +4,7 @@ import br.com.empresa.api.domain.produto.Produto;
 import br.com.empresa.api.domain.produto.ProdutoDto;
 import br.com.empresa.api.repository.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class ProdutoService {
 
     @Autowired
@@ -23,6 +25,7 @@ public class ProdutoService {
 
         Produto produto = modelMapper.map(dto,Produto.class);
         repository.save(produto);
+        log.info("" + produto);
         return modelMapper.map(produto,ProdutoDto.class);
     }
 
@@ -32,7 +35,7 @@ public class ProdutoService {
 
     public ProdutoDto obterPorId(Long id){
 
-        Produto produto = repository.findById(id).orElseThrow(() -> new EntityNotFoundException());
+        Produto produto = repository.findById(id).orElseThrow(EntityNotFoundException::new);
         return modelMapper.map(produto,ProdutoDto.class);
     }
 
