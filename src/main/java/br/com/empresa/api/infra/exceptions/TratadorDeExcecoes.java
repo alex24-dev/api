@@ -1,16 +1,21 @@
 package br.com.empresa.api.infra.exceptions;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.SignatureVerificationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException;
 
 @RestControllerAdvice
 public class TratadorDeExcecoes {
+
+
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity tratarErroBadCredentials() {
@@ -18,22 +23,36 @@ public class TratadorDeExcecoes {
     }
 
     @ExceptionHandler(AuthenticationException.class)
-    public ResponseEntity tratarErroAuthentication() {
+    public ResponseEntity<String> tratarErroAuthentication() {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Falha na autenticação");
     }
 
     @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity tratarErroAcessoNegado() {
+    public ResponseEntity<String>tratarErroAcessoNegado() {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Acesso negado");
     }
 
+    @ExceptionHandler(InternalError.class)
+    public ResponseEntity<String> tratarErro500(Exception ex) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro : " +ex.getLocalizedMessage());
+    }
+
+    @ExceptionHandler(JWTVerificationException.class)
+    public ResponseEntity<String> tratarJWT(JWTVerificationException ex) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Erro: " + ex.getLocalizedMessage());
+    }
+
+
     @ExceptionHandler(Exception.class)
-    public ResponseEntity tratarErro500(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro: " +ex.getLocalizedMessage());
+    public ResponseEntity<String> tratarException(Exception ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro aqui: " + ex.getLocalizedMessage());
     }
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity tratarJWT(Exception ex) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Erro: " +ex.getLocalizedMessage());
+    public ResponseEntity<String>  tratarRuntime(RuntimeException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro : " + ex.getLocalizedMessage());
     }
+
+
+
 }

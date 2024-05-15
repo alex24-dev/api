@@ -1,6 +1,7 @@
 package br.com.empresa.api.service;
 
 import br.com.empresa.api.domain.usuario.RegistrarDto;
+import br.com.empresa.api.domain.usuario.Role;
 import br.com.empresa.api.domain.usuario.Usuario;
 import br.com.empresa.api.repository.UsuarioRepository;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,9 @@ class AutenticacaoServiceTest {
     @Mock
     private RegistrarDto dto;
 
+    @Mock
+    private Role role;
+
     @Test
     void loadUserByUsername() {
 
@@ -38,7 +42,7 @@ class AutenticacaoServiceTest {
 
         //autenticacaoService.register(dto);
 
-        RegistrarDto dto = new RegistrarDto("newUser", "senha", "ROLE_USER");
+        RegistrarDto dto = new RegistrarDto("newUser", "senha",role );
         when(repository.findByLogin(dto.login())).thenReturn(null);
 
         // Chama o método da classe de serviço

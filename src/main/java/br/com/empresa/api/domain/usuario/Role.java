@@ -3,7 +3,9 @@ package br.com.empresa.api.domain.usuario;
 public enum Role {
 
     ADMIN,
-    USER;
+    MEMBER,
+
+    EXTERNAL;
 
 
 //    private String role;
