@@ -10,6 +10,6 @@ public record RegistrarDto(
         @Pattern(regexp = "^[a-zA-Z ]+$", message = "Deve conter apenas letras e espaços")
         String login,
         @NotNull String senha,
-        @NotNull String role) {
+        @NotNull Role role) {
 
 }

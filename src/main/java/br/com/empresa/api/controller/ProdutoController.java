@@ -32,8 +32,28 @@ public class ProdutoController {
     @GetMapping
     public Page<ProdutoDto> listar(@PageableDefault(size = 10 )Pageable paginacao){
 
-
         return service.consultar(paginacao);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoDto> detalhar(@PathVariable  long id){
+
+        ProdutoDto dto = service.obterPorId(id);
+        return ResponseEntity.ok(dto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProdutoDto> atualizar(@PathVariable  Long id, @RequestBody @Valid ProdutoDto dto){
+
+        ProdutoDto atualizado = service.atualizarPagamento(id, dto);
+        return ResponseEntity.ok(atualizado);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ProdutoDto> remover(@PathVariable @Valid Long id){
+
+        service.excluirPagamento(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

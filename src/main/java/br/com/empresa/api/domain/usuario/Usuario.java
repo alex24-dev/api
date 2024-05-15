@@ -26,9 +26,12 @@ public class Usuario implements UserDetails {
 
     private String login;
     private String senha;
-    private String role;
 
-    public Usuario(String login, String encryptedPassword, String role) {
+    @Enumerated(EnumType.STRING)
+    @Column
+    private Role role;
+
+    public Usuario(String login, String encryptedPassword, Role role) {
         this.login = login;
         this.senha = encryptedPassword;
         this.role = role;
