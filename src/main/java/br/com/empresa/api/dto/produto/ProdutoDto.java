@@ -1,4 +1,4 @@
-package br.com.empresa.api.domain.produto;
+package br.com.empresa.api.dto.produto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;

@@ -1,6 +1,6 @@
 package br.com.empresa.api.service;
 
-import br.com.empresa.api.domain.usuario.RegistrarDto;
+import br.com.empresa.api.dto.usuario.RegistrarDto;
 import br.com.empresa.api.domain.usuario.Role;
 import br.com.empresa.api.domain.usuario.Usuario;
 import br.com.empresa.api.repository.UsuarioRepository;

@@ -1,7 +1,7 @@
 package br.com.empresa.api.service;
 
 import br.com.empresa.api.domain.produto.Produto;
-import br.com.empresa.api.domain.produto.ProdutoDto;
+import br.com.empresa.api.dto.produto.ProdutoDto;
 import br.com.empresa.api.repository.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;

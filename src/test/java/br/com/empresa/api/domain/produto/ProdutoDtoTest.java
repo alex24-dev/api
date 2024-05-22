@@ -1,9 +1,8 @@
 package br.com.empresa.api.domain.produto;
 
+import br.com.empresa.api.dto.produto.ProdutoDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ProdutoDtoTest {
 

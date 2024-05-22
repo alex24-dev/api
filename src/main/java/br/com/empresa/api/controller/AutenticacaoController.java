@@ -1,8 +1,8 @@
 package br.com.empresa.api.controller;
 
-import br.com.empresa.api.domain.usuario.RegistrarDto;
+import br.com.empresa.api.dto.usuario.RegistrarDto;
 import br.com.empresa.api.domain.usuario.Usuario;
-import br.com.empresa.api.domain.usuario.LoginDto;
+import br.com.empresa.api.dto.usuario.LoginDto;
 import br.com.empresa.api.infra.security.TokenService;
 import br.com.empresa.api.service.AutenticacaoService;
 import jakarta.validation.Valid;
