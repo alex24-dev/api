@@ -19,13 +19,16 @@
 
 ## Tecnologias usadas
 - ☕ JAVA 17
-- SPRING BOOT
+- SPRING BOOT 3.2.5
 - Spring Security
 - Maven
 - Migration
 - SQL
 - lombok
 - Plugin Jacoco
+- JUnit
+- Teste Unitário
+- Mocks
 - Postman
 
 ## ✍ Funcionalidades do Projeto
