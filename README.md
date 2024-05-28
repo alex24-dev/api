@@ -19,6 +19,7 @@
 
 ## Tecnologias usadas
 - ☕ JAVA 17
+- Paginação
 - SPRING BOOT 3.2.5
 - Spring Security
 - Maven
