@@ -23,6 +23,7 @@
 - Paginação e Ordenação
 - SPRING BOOT 3.2.5
 - Spring Security
+- Bean Validation
 - Maven
 - Migration
 - SQL
