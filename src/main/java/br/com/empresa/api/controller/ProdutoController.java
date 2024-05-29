@@ -30,7 +30,7 @@ public class ProdutoController {
     }
 
     @GetMapping
-    public Page<ProdutoDto> listar(@PageableDefault(size = 10 )Pageable paginacao){
+    public Page<ProdutoDto> listar(@PageableDefault(size = 10, sort = {"nome"} )Pageable paginacao){
 
         return service.consultar(paginacao);
     }
