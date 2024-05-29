@@ -19,7 +19,7 @@
 
 ## Tecnologias usadas
 - ☕ JAVA 17
-- Padrão de Projeto: DTO(Data Tranfer Object)
+- Padrão de Projeto: DTO(Data Transfer Object)
 - Paginação e Ordenação
 - SPRING BOOT 3.2.5
 - Spring Security
