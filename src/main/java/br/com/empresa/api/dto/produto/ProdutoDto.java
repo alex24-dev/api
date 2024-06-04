@@ -20,7 +20,7 @@ public class ProdutoDto {
     private String descricao;
 
     @NotNull
-    @Positive
+    @Positive(message = "preço não pode ser negativo")
     @JsonProperty("preço")
     private Integer valor;
 }

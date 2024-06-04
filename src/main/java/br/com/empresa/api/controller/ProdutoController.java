@@ -4,6 +4,8 @@ import br.com.empresa.api.dto.produto.ProdutoDto;
 import br.com.empresa.api.service.ProdutoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -30,6 +32,7 @@ public class ProdutoController {
     }
 
     @GetMapping
+    @Cacheable( value = {"produtos"})
     public Page<ProdutoDto> listar(@PageableDefault(size = 10, sort = {"nome"} )Pageable paginacao){
 
         return service.consultar(paginacao);
