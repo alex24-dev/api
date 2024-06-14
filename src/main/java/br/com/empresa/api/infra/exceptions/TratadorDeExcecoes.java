@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class TratadorDeExcecoes {
 
-
-
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity tratarErroBadCredentials() {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
@@ -31,23 +29,23 @@ public class TratadorDeExcecoes {
 
     @ExceptionHandler(InternalError.class)
     public ResponseEntity<String> tratarErro500(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro : " +ex.getLocalizedMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro Internal : " +ex.getLocalizedMessage());
     }
 
     @ExceptionHandler(JWTVerificationException.class)
     public ResponseEntity<String> tratarJWT(JWTVerificationException ex) {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Erro: " + ex.getLocalizedMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Erro JWT: " + ex.getLocalizedMessage());
     }
 
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> tratarException(Exception ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro aqui: " + ex.getLocalizedMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro Execption: " + ex.getLocalizedMessage());
     }
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<String>  tratarRuntime(RuntimeException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro : " + ex.getLocalizedMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro Runtime : " + ex.getLocalizedMessage());
     }
 
 

@@ -21,12 +21,12 @@ public class ProdutoService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public ProdutoDto criarProduto(ProdutoDto dto){
+    public ProdutoDto criarProduto(ProdutoDto dto) {
 
-        Produto produto = modelMapper.map(dto,Produto.class);
+        Produto produto = modelMapper.map(dto, Produto.class);
         repository.save(produto);
         log.info("" + produto);
-        return modelMapper.map(produto,ProdutoDto.class);
+        return modelMapper.map(produto, ProdutoDto.class);
     }
 
     public Page<ProdutoDto> consultar(Pageable paginacao) {

@@ -3,9 +3,6 @@ package br.com.empresa.api.controller;
 import br.com.empresa.api.dto.produto.ProdutoDto;
 import br.com.empresa.api.service.ProdutoService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -19,8 +16,12 @@ import java.net.URI;
 @RequestMapping("/api/produtos")
 public class ProdutoController {
 
-    @Autowired
-    private ProdutoService service;
+   //@Autowired
+    private final ProdutoService service;
+
+    public ProdutoController(ProdutoService service) {
+        this.service = service;
+    }
 
     @PostMapping
     @Transactional
@@ -32,10 +33,12 @@ public class ProdutoController {
     }
 
     @GetMapping
-    @Cacheable( value = {"produtos"})
-    public Page<ProdutoDto> listar(@PageableDefault(size = 10, sort = {"nome"} )Pageable paginacao){
+   // @Cacheable( value = {"produtos"})
+    public ResponseEntity<Page<ProdutoDto>> listar(@PageableDefault(size = 10, sort = {"nome"} )Pageable paginacao){
 
-        return service.consultar(paginacao);
+       // return service.consultar(paginacao);
+        return ResponseEntity.ok(service.consultar(paginacao));
+
     }
 
     @GetMapping("/{id}")
