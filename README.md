@@ -34,6 +34,7 @@
 - Teste Unitário
 - Mocks
 - Postman
+- Git/Github
 
 ## ✍ Funcionalidades do Projeto
 
