@@ -21,10 +21,12 @@
 - ☕ JAVA 17
 - SPRING BOOT 3.2.5
 - Spring Security
+- Spring JPA
 - Padrão de Projeto: DTO(Data Transfer Object)
 - Inversão de Controle/ Injeção de dependência
 - Paginação e Ordenação
 - Bean Validation
+- Regex
 - Maven
 - Migration
 - SQL
