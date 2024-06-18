@@ -40,7 +40,7 @@ public class TratadorDeExcecoes {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> tratarException(Exception ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro Execption: " + ex.getLocalizedMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro Execption: " );
     }
 
     @ExceptionHandler(RuntimeException.class)
