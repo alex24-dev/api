@@ -38,7 +38,6 @@ public class ProdutoController {
 
        // return service.consultar(paginacao);
         return ResponseEntity.ok(service.consultar(paginacao));
-
     }
 
     @GetMapping("/{id}")
