@@ -26,6 +26,8 @@
 - Inversão de Controle/ Injeção de dependência
 - Paginação e Ordenação
 - Bean Validation
+- Tratamento de Exceções
+- Verbos HTTP
 - Regex
 - Maven
 - Migration
